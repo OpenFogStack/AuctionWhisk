@@ -1,0 +1,5 @@
+*
+!openwhisk-server-cert.crt
+!init.sh
+!build/distributions
+!build/tmp/docker-coverage
