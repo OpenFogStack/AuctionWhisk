@@ -19,21 +19,39 @@
 
 # OpenWhisk using an Auction-like approach
 
-[![Build Status](https://travis-ci.org/apache/openwhisk.svg?branch=master)](https://travis-ci.org/apache/openwhisk)
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Join Slack](https://img.shields.io/badge/join-slack-9B69A0.svg)](http://slack.openwhisk.org/)
-[![codecov](https://codecov.io/gh/apache/openwhisk/branch/master/graph/badge.svg)](https://codecov.io/gh/apache/openwhisk)
-[![Twitter](https://img.shields.io/twitter/follow/openwhisk.svg?style=social&logo=twitter)](https://twitter.com/intent/follow?screen_name=openwhisk)
+This repository contains the source code for the AuctionWhisk prototype used within the papers [**Towards Auction-Based Function Placement in Serverless Fog Platforms**](https://arxiv.org/abs/1912.06096) and [**AuctionWhisk: Using an Auction-Inspired Approach for Function Placement in Serverless Fog Platforms**](https://arxiv.org/abs/2108.13222):
 
-OpenWhisk is a cloud-first distributed event-based programming service. It provides a programming model to upload event handlers to a cloud service, and register the handlers to respond to various events. Learn more at [http://openwhisk.apache.org](http://openwhisk.apache.org).
+The Function-as-a-Service (FaaS) paradigm has a lot of potential as a computing model for fog environments comprising both cloud and edge nodes, as compute requests can be scheduled across the entire fog continuum in a fine-grained manner. When the request rate exceeds capacity limits at the resource-constrained edge, some functions need to be offloaded towards the cloud.
 
+In this paper, we present an auction-inspired approach in which application developers bid on resources while fog nodes decide locally which functions to execute and which to offload in order to maximize revenue. Unlike many current approaches to function placement in the fog, our approach can work in an online and decentralized manner. We also present our proof-of-concept prototype AuctionWhisk that illustrates how such an approach can be implemented in a real FaaS platform. Through a number of simulation runs and system experiments, we show that revenue for overloaded nodes can be maximized without dropping function requests.
 
-* [Quick Start](#quick-start) (Docker-Compose)
-* [Native development](#native-development) (Mac and Ubuntu)
-* [Kubernetes](#kubernetes-setup)
-* [Learn concepts and commands](#learn-concepts-and-commands)
-* [Issues](#issues)
-* [Slack](#slack)
+If you use this software in a publication, please cite it as:
+
+### Text
+
+David Bermbach, Setareh Maghsudi, Jonathan Hasenburg, Tobias Pfandzelter. **Towards Auction-Based Function Placement in Serverless Fog Platforms.** In: Proceedings of the Second IEEE International Conference on Fog Computing 2020 (ICFC 2020). IEEE 2020.
+David Bermbach, Jonathan Bader, Jonathan Hasenburg, Tobias Pfandzelter, Lauritz Thamsen, **AuctionWhisk: Using an Auction-Inspired Approach for Function Placement in Serverless Fog Platforms**, Software: Practice and Experience, 2021.
+
+### BibTeX
+```bibtex
+@inproceedings{paper_bermbach_auctions4function_placement,
+	title = "Towards Auction-Based Function Placement in Serverless Fog Platforms",
+	booktitle = "Proceedings of the Second {IEEE} {International} {Conference} on {Fog} {Computing} (ICFC 2020)",
+	author = "Bermbach, David and Maghsudi, Setareh and Hasenburg, Jonathan and Pfandzelter, Tobias",
+	year = 2020,
+	publisher = "IEEE"
+}
+
+@article{bermbach-auctionwhisk-wiley,
+    author = "Bermbach, David and Bader, Jonathan, and Hasenburg, Jonathan and Pfandzelter, Tobias and Thamsen, Lauritz",
+    title = "AuctionWhisk: Using an Auction-Inspired Approach for Function Placement in Serverless Fog Platforms",
+    journal = "Software: Practice and Experience",
+    year = 2021,
+    publisher = "Wiley"
+}
+```
+
+For a full list of publications, please see [our website](https://www.mcc.tu-berlin.de/menue/forschung/publikationen/parameter/en/).
 
 ### Quick Start
 The easiest way to start using OpenWhisk is to get Docker installed on Mac, Windows or Linux. The [Docker website](https://docs.docker.com/install/) has detailed instructions on getting the tools installed. This does not give you a production deployment but gives you enough of the pieces to start writing functions and seeing them run.
